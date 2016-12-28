@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id 'nebula.ospackage' version '4.3.0'
+}
+
+ospackage {
+    version '0.1.0'
+    release '1'
+    from(jar.outputs.files) {
+        into '/lib'
+    }
+    from(configurations.runtime) {
+        into '/lib/thirdparty'
+    }
+}
+
+repositories {
+    jcenter() 
+}
+
+dependencies {
+    compile 'com.google.guava:guava:20.0'
+}
+
